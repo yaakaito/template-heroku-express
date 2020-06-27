@@ -10,4 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run:
+        with:
+          ref: master
+      - run: |
+          git push https://heroku:${secrets.HEROKU_API_KEY}@git.heroku.com/${secrets.HEROKU_APP_NAME}.git master
