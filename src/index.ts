@@ -6,7 +6,8 @@ const app = withMiddlewares(express())
 app.get('/', (request, response, next) => {
     (async () => {
         response.send({
-            body: process.env.TEXT
+            title: 'api',
+            body: process.env.TEXT,
         })
     })().catch(next)
 })
