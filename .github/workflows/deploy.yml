@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: master
+          ref: ${{ github.ref }}
       - run: |
-          git push -f "https://heroku:${API_KEY}@git.heroku.com/${APP_NAME}.git" master
+          git push "https://heroku:${API_KEY}@git.heroku.com/${APP_NAME}.git" master
         env:
           API_KEY: ${{ secrets.HEROKU_API_KEY }}
           APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
